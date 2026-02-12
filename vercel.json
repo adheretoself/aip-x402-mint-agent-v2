@@ -5,9 +5,17 @@
     {
       "src": "index.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": ".well-known/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
+    {
+      "src": "/.well-known/(.*)",
+      "dest": "/.well-known/$1"
+    },
     {
       "src": "/.*",
       "dest": "index.js"
